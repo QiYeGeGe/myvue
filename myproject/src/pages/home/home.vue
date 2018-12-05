@@ -9,27 +9,60 @@
           <span class="login">登录</span>
         </div>
         <div class="tabs">
-          <div class="ulWrap">
+          <div class="ulWrap" ref="ulWrap">
             <ul class="tabItems">
-              <li class="item">推荐</li>
-              <li class="item">居家</li>
-              <li class="item">鞋包</li>
-              <li class="item">服装</li>
-              <li class="item">电器</li>
-              <li class="item">洗护</li>
-              <li class="item">饮食</li>
-              <li class="item">餐厨</li>
-              <li class="item">婴童</li>
-              <li class="item">问题</li>
-              <li class="item">特色</li>
+              <li class="item">
+                <router-link to="tuijian">推荐</router-link>
+              </li>
+              <li class="item">
+                <router-link to="jujia">居家</router-link>
+              </li>
+              <li class="item">
+                <router-link to="xiebao">鞋包</router-link>
+              </li>
+              <li class="item">
+                <router-link to="fuzhuang">服装</router-link>
+              </li>
+              <li class="item">
+                <router-link to="dianqi">电器</router-link>
+              </li>
+              <li class="item">
+                <router-link to="xihu">洗护</router-link>
+              </li>
+              <li class="item">
+                <router-link to="yinshi">饮食</router-link>
+              </li>
+              <li class="item">
+                <router-link to="canchu">餐厨</router-link>
+              </li>
+              <li class="item">
+                <router-link to="yingtong">婴童</router-link>
+              </li>
+              <li class="item">
+                <router-link to="wenti">文体</router-link>
+              </li>
+              <li class="item">
+                <router-link to="tese">特色</router-link>
+              </li>
             </ul>
           </div>
-          <div class="arrow"></div>
+          <div class="arrow">
+            <i class="iconfont icon-iconfontjiantou"></i>
+          </div>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 <script>
+  import BScroll from 'better-scroll'
+
     export default {
+      mounted(){
+        new BScroll('.ulWrap',{
+          scrollX: true,
+          click: true
+        })
+      }
 
     }
 </script>
@@ -77,20 +110,37 @@
         line-height :0.4rem
     .tabs
       height:0.6rem
+      position:relative
+      overflow: hidden;
       .ulWrap
+        position absolute
+        overflow: hidden;
         width:6.5rem
-        background #7e8c8d
+        display inline-block
         .tabItems
           clearFix()
           height:0.06rem
           width:11rem
+          display hidden
           .item
             height:0.6rem
             width:1rem
-            font-size :0.4rem
+            font-size :0.3rem
             text-align center
             float:left
+            line-height :0.6rem
       .arrow
-
-
+        display inline-block
+        width:1rem
+        background-color:white
+        z-index 100
+        position:absolute
+        right:-0.1rem
+        text-align center
+        i
+          margin-left 0.2rem
+          margin-top  0.1rem
+          display block
+          width 0.3rem
+          height 0.3rem
 </style>
